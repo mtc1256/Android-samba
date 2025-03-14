@@ -7,7 +7,7 @@ pr_help()
     echo ""
     echo "    --arch=<arm|arm64|x86|x86_64>"
     echo "    --api=<14..28>"
-    echo ""
+    echo "./configure.sh --arch=arm64 --api=23"
     exit 1
 }
 
@@ -86,7 +86,7 @@ export AR=$TOOLCHAIN/$TRIPLE-ar
 export RANLIB=$TOOLCHAIN/$TRIPLE-ranlib
 
 COMPILE_SYSROOT=$TOOLCHAIN/sysroot
-export CFLAGS="--sysroot=$COMPILE_SYSROOT $COMPILER_FLAG -O2 -D_FORTIFY_SOURCE=2 -D__ANDROID_API__=$ANDROID_VER -D__USE_FILE_OFFSET64=1 -fstack-protector-all -fPIE -Wa,--noexecstack -Wformat -Wformat-security"
+export CFLAGS="--sysroot=$COMPILE_SYSROOT $COMPILER_FLAG -g -O2 -D_FORTIFY_SOURCE=2 -D__ANDROID_API__=$ANDROID_VER -D__USE_FILE_OFFSET64=1 -fstack-protector-all -fPIE -Wa,--noexecstack -Wformat -Wformat-security"
 
 LINK_SYSROOT=$NDK/platforms/android-$ANDROID_VER/arch-$PLATFORM_ARCH
 export LDFLAGS="--sysroot=$LINK_SYSROOT $LINKER_FLAG -Wl,-z,relro,-z,now"

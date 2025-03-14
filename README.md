@@ -20,6 +20,20 @@ export TMPDIR=/data/local/tmp
 
 ./data/samba/bin/smbd -D
 ./data/samba/bin/nmbd -D
+
+
+/system_ext/bin/smbd -S -F -i --no-process-group
+--daemon (-D): 以守护进程方式运行 smbd，这是默认模式。
+--interactive (-i): 以交互模式运行，不作为守护进程。
+--foreground (-F): 在前台运行守护进程，适用于 daemontools 等工具。
+--no-process-group: 不创建新的进程组。
+--log-stdout (-S): 将日志输出到标准输出（stdout）。
+--build-options (-b): 打印构建选项。
+--port (-p): 指定监听的端口。
+--profiling-level (-P): 设置性能分析级别，使用 PROFILE_LEVEL 环境变量。
+这些选项通过 popt 库解析命令行参数，以便灵活配置 smbd 的行为。
+
+
 ```
 
 # Reference:

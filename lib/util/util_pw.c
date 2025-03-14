@@ -51,6 +51,8 @@ struct passwd *tcopy_passwd(TALLOC_CTX *mem_ctx,
 	ret->pw_gid = from->pw_gid;
 	ret->pw_dir = talloc_strdup(ret, from->pw_dir);
 	ret->pw_shell = talloc_strdup(ret, from->pw_shell);
+	//TODO_NEXT
+	ret->pw_gecos = talloc_strdup(ret, from->pw_name);
 
 	return ret;
 }

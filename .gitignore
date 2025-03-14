@@ -1,6 +1,8 @@
 /bin/
+out/
 /lib/*/bin/
 /st/
+.vscode/
 .waf*
 .lock-wscript
 *~
